@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juego Didáctico Andino</title>
+  <style>
+    /* Fondo andino con textura y colores */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f7e9d7 0%, #d18e5f 50%, #a24c2b 100%);
+      margin: 0;
+      padding: 20px;
+      color: #3a2f1f;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      color: #4a2c0a;
+      text-shadow: 1px 1px 2px #fff3e6;
+      margin-bottom: 30px;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    section {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px 25px;
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #7a4a1e;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #a96738;
+      padding-bottom: 6px;
+    }
+    img {
+      max-width: 200px;
+      margin: 10px 15px 15px 0;
+      vertical-align: middle;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      cursor: default;
+    }
+    .draggable {
+      background: #ffd88c;
+      padding: 8px 14px;
+      margin: 6px 6px 6px 0;
+      cursor: grab;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: 600;
+      user-select: none;
+      box-shadow: 1px 1px 4px #b07d26;
+      transition: background-color 0.3s ease;
+    }
+    .draggable:active {
+      cursor: grabbing;
+      background-color: #f3bb40;
+    }
+    .dropzone {
+      min-width: 140px;
+      min-height: 38px;
+      border: 3px dashed #a96738;
+      border-radius: 8px;
+      margin: 6px 6px 6px 0;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 6px 12px;
+      background: #fff6d1;
+      font-weight: 600;
+      color: #6a4a1c;
+      position: relative;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .dropzone.dragover {
+      background-color: #fff0a3;
+      border-color: #d9a825;
+    }
+    button {
+      background-color: #a96738;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      margin: 12px 8px 12px 0;
+      font-size: 1rem;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 1px 1px 4px #6e3f0e;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #d18e5f;
+    }
+    #retroalimentacion {
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #3a2f1f;
+      min-height: 28px;
+      user-select: none;
+    }
+    /* Tooltip traducción */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted #a96738;
+      cursor: help;
+      font-weight: 700;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 180px;
+      background-color: #6a4a1c;
+      color: #fff6d1;
+      text-align: center;
+      border-radius: 6px;
+      padding: 6px 10px;
+      position: absolute;
+      z-index: 10;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -90px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      line-height: 1.2;
+      user-select: text;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    @media (max-width: 650px) {
+      img {
+        max-width: 140px;
+        margin-bottom: 15px;
+      }
+      .draggable, .dropzone {
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
